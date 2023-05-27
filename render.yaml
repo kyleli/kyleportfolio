@@ -2,6 +2,7 @@ databases:
   - name: rendertest
     databaseName: rendertest
     user: rendertest
+    plan: free
 
 services:
   - type: web
