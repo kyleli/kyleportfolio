@@ -8,7 +8,6 @@ services:
   - type: web
     name: rendertest
     env: python
-    pythonVersion: 3.10.6
     plan: free
     buildCommand: "./build.sh"
     startCommand: "gunicorn mysite.wsgi:application"
