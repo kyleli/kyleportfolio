@@ -1,0 +1,21 @@
+databases:
+  - name: rendertest
+    databaseName: rendertest
+    user: rendertest
+
+services:
+  - type: web
+    name: rendertest
+    env: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn mysite.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: rendertest
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
