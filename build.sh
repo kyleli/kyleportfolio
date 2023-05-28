@@ -13,3 +13,7 @@ rm poetry.lock
 poetry lock
 
 python -m poetry install
+
+echo "Running 'collectstatic' command..."
+
+python manage.py collectstatic --noinput
